@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+     <div class="container">
+        <!-- Setup Screen -->
+        <div class="setup-screen" id="setupScreen">
+            <h1>🎯 Interactive Quiz App</h1>
+            <div class="setup-form">
+                <div class="form-group">
+                    <label for="numQuestions">Number of Questions:</label>
+                    <input type="number" id="numQuestions" min="5" max="50" value="10">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="">Any Category</option>
+                        <option value="9">General Knowledge</option>
+                        <option value="17">Science & Nature</option>
+                        <option value="18">Science: Computers</option>
+                        <option value="19">Science: Mathematics</option>
+                        <option value="21">Sports</option>
+                        <option value="22">Geography</option>
+                        <option value="23">History</option>
+                        <option value="27">Animals</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="type">Question Type:</label>
+                    <select id="type">
+                        <option value="">Any Type</option>
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="boolean">True/False</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn" onclick="startQuiz()">Start Quiz 🚀</button>
+        </div>
+
+        <!-- Loading Screen -->
+        <div class="loading" id="loadingScreen" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading your quiz...</p>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div class="quiz-screen" id="quizScreen">
+            <div class="question-header">
+                <div class="question-number" id="questionNumber">Question 1 of 10</div>
+                <div class="timer" id="timer">30s</div>
+            </div>
+            <div class="category-difficulty" id="categoryDifficulty"></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question" id="questionText"></div>
+                <div class="answers" id="answersContainer"></div>
+            </div>
+            
+            <button class="btn" id="nextBtn" onclick="nextQuestion()" style="display: none;">
+                Next Question ➡️
+            </button>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="results-screen" id="resultsScreen">
+            <h1>🎊 Quiz Complete!</h1>
+            <div class="score" id="finalScore">0%</div>
+            <div class="score-details">
+                <div class="stat-card">
+                    <div class="stat-number" id="correctAnswers">0</div>
+                    <div class="stat-label">Correct Answers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="incorrectAnswers">0</div>
+                    <div class="stat-label">Incorrect Answers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalTime">0s</div>
+                    <div class="stat-label">Total Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="averageTime">0s</div>
+                    <div class="stat-label">Avg. per Question</div>
+                </div>
+            </div>
+            <button class="btn" onclick="restartQuiz()">Take Another Quiz 🔄</button>
+            <button class="btn" onclick="goHome()">Back to Setup ⬅️</button>
+        </div>
+    </div>
+</body>
+</html>
