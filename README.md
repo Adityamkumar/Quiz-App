@@ -23,10 +23,6 @@ Test your knowledge with fun quizzes and get instant feedback! 🚀
 - **CSS3** 🎨  
 - **JavaScript (Vanilla JS)** ⚡  
 
----
-
-## 📸 Preview
-(Add a screenshot of your quiz app here for better visibility)
 
 ---
 
